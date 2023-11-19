@@ -6,7 +6,7 @@
 /*   By: maburnet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 17:34:54 by maburnet          #+#    #+#             */
-/*   Updated: 2023/11/15 17:50:12 by maburnet         ###   ########.fr       */
+/*   Updated: 2023/11/19 16:10:41 by maburnet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,8 @@ void	ft_usleep(long long time, t_data *data)
 	long long	start;
 
 	start = ft_get_time();
+	if (time <= 0)
+		return ;
 	while (1)
 	{
 		if (ft_is_dead(data) == 1)
@@ -73,7 +75,7 @@ void	ft_print_msg(t_data *data, int id, char *msg)
 	if (ft_is_dead(data) == 0)
 	{
 		printf("%lld ", (ft_get_time() - data->starting_time));
-		printf("%d ", id + 1);
+		printf("%d ", id);
 		printf("%s\n", msg);
 	}
 	pthread_mutex_unlock(&(data->write));

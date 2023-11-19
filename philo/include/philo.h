@@ -44,6 +44,7 @@ typedef struct s_data
 	int				is_dead;
 	int				all_ate;
 	long long		starting_time;
+	long int		t_think;
 	pthread_mutex_t	meal_check;
 	pthread_mutex_t	dead_check;
 	pthread_mutex_t	all_ate_check;

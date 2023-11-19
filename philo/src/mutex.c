@@ -38,7 +38,7 @@ int	ft_is_all_ate(t_data *data)
 
 void	ft_philo_died(t_data *data, int i)
 {
-	ft_print_msg(data, i, "died");
+	ft_print_msg(data, i + 1, "died");
 	pthread_mutex_lock(&(data->dead_check));
 	data->is_dead = 1;
 	pthread_mutex_unlock(&(data->dead_check));

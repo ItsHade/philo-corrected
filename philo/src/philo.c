@@ -6,11 +6,24 @@
 /*   By: maburnet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 17:34:15 by maburnet          #+#    #+#             */
-/*   Updated: 2023/11/13 17:38:34 by maburnet         ###   ########.fr       */
+/*   Updated: 2023/11/19 14:18:16 by maburnet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/philo.h"
+
+void	*philo_do_one(void *v_philo)
+{
+	t_philo	*philo;
+	t_data	*data;
+
+	philo = (t_philo *)v_philo;
+	data = philo->data;
+	ft_print_msg(data, philo->id, "is thinking");
+	ft_usleep(data->t_t_die, data);
+	ft_print_msg(data, philo->id, "died");
+	return (NULL);
+}
 
 void	ft_exit(t_data *data, t_philo *philo)
 {
@@ -59,8 +72,6 @@ int	ft_start(t_data *data)
 	return (ft_check_death(data, philo), ft_exit(data, philo), 0);
 }
 
-
-//mettre un limite a 200/250 ??
 int	main(int ac, char **av)
 {
 	t_data	data;
